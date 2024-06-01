@@ -1,17 +1,22 @@
 <script setup>
 import { ref, watch } from "vue";
 
+
+
 const background = ref("");
 // Watcher to log changes to background value
 watch(background, (newValue) => {
   console.log("background", newValue);
   document.body.style.backgroundColor = newValue;
+  emit('colorChange', newValue)
 });
 
 // Method to change the background color
 const changeBackground = (color) => {
   background.value = color;
 };
+
+const emit = defineEmits(['colorChange']);
 </script>
 
 <template>
@@ -25,9 +30,9 @@ const changeBackground = (color) => {
       />
       <input
         type="button"
-        @click="changeBackground('blue')"
-        value="blue"
-        class="btn blue"
+        @click="changeBackground('green')"
+        value="green"
+        class="btn green"
       />
       <input
         type="button"
@@ -57,7 +62,7 @@ const changeBackground = (color) => {
   </div>
 </template>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -85,8 +90,8 @@ body {
   background-color: purple;
 }
 
-.blue {
-  background-color: blue;
+.green {
+  background-color: green;
 }
 
 .red {
@@ -102,11 +107,11 @@ body {
 }
 
 .black {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 .content-container {
-  height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
