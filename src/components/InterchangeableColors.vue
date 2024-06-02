@@ -20,41 +20,46 @@ const emit = defineEmits(["colorChange"]);
 <template>
   <div class="content-container">
     <nav class="nav">
-      <input
-        type="button"
+      <img
+        src="../assets/img/plum.png"
         @click="changeBackground('purple')"
-        value="purple"
-        class="btn purple"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
-      <input
-        type="button"
+
+      <img
+        src="../assets/img/apple.png"
         @click="changeBackground('green')"
-        value="green"
-        class="btn green"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
-      <input
-        type="button"
+
+      <img
+        src="../assets/img/cherry.png"
         @click="changeBackground('red')"
-        value="red"
-        class="btn red"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
-      <input
-        type="button"
+
+      <img
+        src="../assets/img/blueberry.png"
         @click="changeBackground('blue')"
-        value="blue"
-        class="btn blue"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
-      <input
-        type="button"
+
+      <img
+        src="../assets/img/banana.png"
         @click="changeBackground('yellow')"
-        value="yellow"
-        class="btn yellow"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
-      <input
-        type="button"
+
+      <img
+        src="../assets/img/orange.png"
         @click="changeBackground('orange')"
-        value="orange"
-        class="btn orange"
+        class="w-[150px] cursor-pointer"
+        alt=""
       />
     </nav>
   </div>
@@ -71,17 +76,10 @@ body {
   background: rgb(28, 28, 35);
 }
 
-.btn {
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  color: #fff;
-  border: 2px solid white;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  border-radius: 100%;
-  text-transform: capitalize;
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .purple {
