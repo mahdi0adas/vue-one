@@ -2,19 +2,31 @@
 import { ref } from "vue";
 import emoji from "./components/emoji.vue";
 import InterchangeableColors from "./components/InterchangeableColors.vue";
+import feedBack from "./components/feedBack.vue";
+
+
 
 const Emoji = ref(false);
 const Color = ref(false);
+const FeedBack = ref(false);
 const textColor = ref("");
 
 const showEmoji = () => {
   Emoji.value = !Emoji.value;
   Color.value = false;
+  FeedBack.value = false;
 };
 
 const showColor = () => {
   Color.value = !Color.value;
   Emoji.value = false;
+  FeedBack.value = false;
+};
+
+const showFeedBack = () => {
+  FeedBack.value = !FeedBack.value;
+  Emoji.value = false;
+  Color.value = false;
 };
 
 const handleColorChange = (color) => {
@@ -33,12 +45,18 @@ const handleColorChange = (color) => {
     <button :style='[`color: ${textColor} ;`]' @click="showColor">
       Color
     </button>
+    <button :style='[`color: ${textColor} ;`]' @click="showFeedBack">
+      Feed Back
+    </button>
   </div>
   <div v-if="Emoji">
     <emoji />
   </div>
   <div v-else-if="Color">
-    <InterchangeableColors @colorChange="handleColorChange" />
+    <InterchangeableColors   @colorChange="handleColorChange" />
+  </div>
+  <div v-else-if="FeedBack">
+    <feedBack />
   </div>
   <div
     v-else

@@ -1,14 +1,12 @@
 <script setup>
 import { ref, watch } from "vue";
 
-
-
 const background = ref("");
 // Watcher to log changes to background value
 watch(background, (newValue) => {
   console.log("background", newValue);
   document.body.style.backgroundColor = newValue;
-  emit('colorChange', newValue)
+  emit("colorChange", newValue);
 });
 
 // Method to change the background color
@@ -16,7 +14,7 @@ const changeBackground = (color) => {
   background.value = color;
 };
 
-const emit = defineEmits(['colorChange']);
+const emit = defineEmits(["colorChange"]);
 </script>
 
 <template>
