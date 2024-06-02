@@ -1,26 +1,66 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const feedBack = ref("");
+const showFeedBackResult = ref(false);
+const showFeedBackPanel = ref(true);
+
+const feedBackStatus = (status) => {
+  feedBack.value = status;
+  console.log("feedbakc", status);
+};
+
+const sendFeedBack = () => {
+  showFeedBackResult.value = true;
+  showFeedBackPanel.value = false;
+};
+</script>
 
 <template>
   <div class="big-box">
-    <section class="panel-container" id="panel">
+    <section class="panel-container" v-if="showFeedBackPanel">
       <strong>Your Feedback 👀</strong>
       <div class="ratings-container">
         <div class="container">
-          <div class="rating">
+          <div
+            class="rating"
+            @click="feedBackStatus('Unhappy')"
+            :class="{ active: feedBack === 'Unhappy' }"
+          >
             <div class="icon">😒</div>
             <small>Unhappy</small>
           </div>
-          <div class="rating">
+
+          <div
+            class="rating"
+            @click="feedBackStatus('Neutral')"
+            :class="{ active: feedBack === 'Neutral' }"
+          >
             <div class="icon">😐</div>
             <small>Neutral</small>
           </div>
-          <div class="rating">
+
+          <div
+            class="rating"
+            @click="feedBackStatus('Satisfied')"
+            :class="{ active: feedBack === 'Satisfied' }"
+          >
             <div class="icon">😊</div>
             <small>Satisfied</small>
           </div>
         </div>
       </div>
-      <button class="btn" id="send">Send Feedback</button>
+      <button class="btn" @click="sendFeedBack()">Send Feedback</button>
+    </section>
+
+    <section v-if="showFeedBackResult" class="panel-container">
+      <div class="ratings-container">
+        <div class="flex flex-col justify-center items-center">
+          <p class="text-[100px]">💖</p>
+          <strong class="text-[#e16c6c]">Thank you for Your Feedback 👀</strong>
+          <strong class="text-[gold]">'{{ feedBack }}'</strong>
+        </div>
+      </div>
     </section>
   </div>
 </template>
