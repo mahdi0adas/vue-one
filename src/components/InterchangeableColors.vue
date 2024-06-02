@@ -42,9 +42,9 @@ const emit = defineEmits(['colorChange']);
       />
       <input
         type="button"
-        @click="changeBackground('pink')"
-        value="pink"
-        class="btn pink"
+        @click="changeBackground('blue')"
+        value="blue"
+        class="btn blue"
       />
       <input
         type="button"
@@ -54,9 +54,9 @@ const emit = defineEmits(['colorChange']);
       />
       <input
         type="button"
-        @click="changeBackground('black')"
-        value="black"
-        class="btn black"
+        @click="changeBackground('orange')"
+        value="orange"
+        class="btn orange"
       />
     </nav>
   </div>
@@ -98,20 +98,20 @@ body {
   background-color: red;
 }
 
-.pink {
-  background-color: pink;
+.blue {
+  background-color: blue;
 }
 
 .yellow {
   background-color: yellow;
 }
 
-.black {
-  background-color: rgb(0, 0, 0);
+.orange {
+  background-color: orange;
 }
 
 .content-container {
-  height: 50vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

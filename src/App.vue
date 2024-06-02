@@ -24,12 +24,13 @@ const handleColorChange = (color) => {
 
 <template>
   <div
-    class="flex gap-3 justify-center items-center h-[30px] bg-[#9bff9b] text-white py-5"
+    class="flex gap-3 justify-center items-center h-[30px] bg-black text-white py-5"
   >
-    <button :class="[`btn text-[${textColor}]`]" @click="showEmoji">
+    <button 
+    :style='[`color: ${textColor} ;`]' @click="showEmoji">
       Emoji
     </button>
-    <button :class="[`btn text-[${textColor}]`]" @click="showColor">
+    <button :style='[`color: ${textColor} ;`]' @click="showColor">
       Color
     </button>
   </div>
@@ -41,7 +42,7 @@ const handleColorChange = (color) => {
   </div>
   <div
     v-else
-    class="flex text-red-500 text-[50px] justify-center items-center h-[400px]"
+    class="flex text-white py-5 text-[50px] justify-center items-center h-[400px]"
   >
     Please choose something from the navBar!
   </div>
@@ -50,5 +51,6 @@ const handleColorChange = (color) => {
 <style scoped>
 .btn {
   padding: 2px 20px;
+
 }
 </style>
