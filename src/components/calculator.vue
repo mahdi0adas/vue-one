@@ -7,23 +7,28 @@ const selectOp = ref("");
 const theResults = ref("");
 
 watch(
-  [numberOne, numberTwo, selectOp],
-  ([newValueOne, newValueTwo, newValuEThree]) => {
+  [numberOne, numberTwo, selectOp, theResults],
+  ([newValueOne, newValueTwo, newValuEThree, newValuFour]) => {
     console.log(newValueOne);
     console.log(newValueTwo);
     console.log(newValuEThree);
+    console.log(newValuFour);
   }
 );
 
 const submitBtn = () => {
+  // Convert input values to numbers
+  const num1 = Number(numberOne.value);
+  const num2 = Number(numberTwo.value);
+
   if (selectOp.value === "plus") {
-    theResults.value = numberOne.value + numberTwo.value;
+    theResults.value = num1 + num2;
   } else if (selectOp.value === "min") {
-    theResults.value = numberOne.value - numberTwo.value;
+    theResults.value = num1 - num2;
   } else if (selectOp.value === "dev") {
-    theResults.value = numberOne.value / numberTwo.value;
+    theResults.value = num1 / num2;
   } else {
-    theResults.value = numberOne.value * numberTwo.value;
+    theResults.value = num1 * num2;
   }
 };
 </script>
@@ -31,7 +36,7 @@ const submitBtn = () => {
 <template>
   <div class="main">
     <div class="inputs">
-      <h1 v-if="theResults" class="result text-center my-4">
+      <h1 v-if="theResults !== ''" class="result text-center my-4">
         {{ theResults }}
       </h1>
       <h1 v-else class="result text-center my-4">Result</h1>
