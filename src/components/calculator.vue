@@ -34,6 +34,12 @@ const submitBtn = () => {
 </script>
 
 <template>
+    <div>
+    <p class="bg-green-500 p-2 m-2 rounded-xl text-center">
+      Calculator
+    </p>
+  </div>
+
   <div class="main">
     <div class="inputs">
       <h1 v-if="theResults !== ''" class="result text-center my-4">
@@ -63,6 +69,7 @@ const submitBtn = () => {
       <button @click="submitBtn" id="btn">Submit</button>
     </div>
   </div>
+
 </template>
 
 <style scoped>
