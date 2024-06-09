@@ -51,8 +51,9 @@ const handleColorChange = (color) => {
 
 onMounted(() => {
   gsap.to(".box", {
-    x: 100,
-    duration: 2,
+    x: 2000,
+    duration: 20,
+    repeat: -1,
   });
 });
 </script>
@@ -89,7 +90,7 @@ onMounted(() => {
   </div>
   <div
     v-else
-    class="flex text-white py-5 text-[50px] justify-center items-center h-[400px] box"
+    class="flex text-white py-5 text-[50px] justify-center items-center h-[400px]"
   >
     Please choose something from the navBar!
     </div>
